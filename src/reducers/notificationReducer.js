@@ -3,7 +3,7 @@ export const setNotification = (notif, n) => {
     return async dispatch => {
         dispatch({ type: 'SHOW_NOTIFICATION', text: notif })
           t = setTimeout(() => {
-            dispatch({ type: 'HIDE_NOTIFICATION' })
+            dispatch({ type: 'CLR_NOTIFICATION' })
         }, n * 1000)
         
 
@@ -15,7 +15,7 @@ const notificationReducer = (state = ' ', action) => {
         case 'SHOW_NOTIFICATION':
             clearTimeout(t)
             return `${action.text}`
-        case 'HIDENOTIFICATION':
+        case 'CLR_NOTIFICATION':
             return ' '
         default:
             return ' '
